@@ -9,7 +9,7 @@ services:
     ports:
       - "7800:7800"
     environment:
-      DATABASE_URL: "/run/secrets/DATABASE_URL"
+      DATABASE_URL: "postgresql://postgres.mgvaztrwyspjhzqohbqt:Fws0K2Pb0AR6blw2@aws-0-us-west-1.pooler.supabase.com:5432/postgres"
 
 secrets:
   DATABASE_URL:

@@ -15,7 +15,7 @@ jobs:
           host: ${{ secrets.IP }}
           username: root
           key: ${{ secrets.SSH_KEY }}
-          command_timeout: 90m
+          command_timeout: 100m
           script: |
             cd /root/maps
             git pull

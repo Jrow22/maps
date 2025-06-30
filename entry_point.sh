@@ -10,6 +10,8 @@ echo "DEBUG: DSN read from secret: ->${DB_SECRET_CONTENT}<-"
 
 export DATABASE_URL="$DB_SECRET_CONTENT"
 
+echo "DEBUG: DATABASE_URL env var is ->${DATABASE_URL}<-"
+
 # Execute the original command of the image (which starts pg_tileserv)
 # This uses "$@" to pass any arguments that would normally be given to the container.
 exec "$@"

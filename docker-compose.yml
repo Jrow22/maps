@@ -2,7 +2,6 @@
 services:
   pg_tileserv:
     image: jamrow/maps:latest
-    container_name: maps
     restart: always
     secrets:
       - DATABASE_URL

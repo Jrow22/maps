@@ -8,8 +8,6 @@ services:
       - DATABASE_URL
     ports:
       - "7800:7800"
-    environment:
-      - DATABASE_URL: "/run/secrets/DATABASE_URL"
 
 secrets:
   DATABASE_URL:

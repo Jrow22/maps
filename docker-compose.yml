@@ -10,7 +10,3 @@ services:
       - "7800:7800"
     environment:
       - DATABASE_URL
-
-secrets:
-  DATABASE_URL:
-    external: true

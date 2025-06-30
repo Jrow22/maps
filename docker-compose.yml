@@ -1,7 +1,7 @@
 
 services:
   pg_tileserv:
-    image: pramsey/pg_tileserv:latest
+    image: jamrow/maps:${IMAGE_TAG}
     container_name: maps
     restart: always
     secrets:

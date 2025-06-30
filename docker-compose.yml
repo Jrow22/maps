@@ -1,0 +1,16 @@
+
+services:
+  pg_tileserv:
+    image: pramsey/pg_tileserv:latest
+    container_name: maps
+    restart: always
+    secrets:
+      - DATABASE_URL
+    ports:
+      - "7800:7800"
+    environment:
+      - DATABASE_URL
+
+secrets:
+  DATABASE_URL:
+    external: true

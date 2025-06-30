@@ -9,7 +9,7 @@ services:
     ports:
       - "7800:7800"
     environment:
-      - DATABASE_URL: /run/secrets/DATABASE_URL
+      - DATABASE_URL: "/run/secrets/DATABASE_URL"
 
 secrets:
   DATABASE_URL:

@@ -3,8 +3,8 @@ services:
   pg_tileserv:
     image: jamrow/maps:latest
     restart: always
-    secrets:
-      - DATABASE_URL
+    env_file:
+      - /root/env.env
     ports:
       - "7800:7800"
     deploy:

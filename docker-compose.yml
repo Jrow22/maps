@@ -8,6 +8,10 @@ services:
       - DATABASE_URL
     ports:
       - "7800:7800"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: none
 
 secrets:
   DATABASE_URL:

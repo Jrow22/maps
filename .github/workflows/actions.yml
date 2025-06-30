@@ -20,7 +20,7 @@ jobs:
             cd /root/maps
             git pull
             GIT_COMMIT=$(git rev-parse --short HEAD)
-            docker build -t jamrow/maps:${GIT_COMMIT} -t jamrow/maps:latest ./maps
+            docker build -t jamrow/maps:${GIT_COMMIT} -t jamrow/maps:latest
             docker push jamrow/maps:${GIT_COMMIT}
             docker push jamrow/maps:latest
             IMAGE_TAG=${GIT_COMMIT} docker stack deploy -c docker-compose.yml maps_stack

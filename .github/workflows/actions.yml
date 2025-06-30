@@ -1,0 +1,26 @@
+name: Deploy to Droplet
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.IP }}
+          username: root
+          key: ${{ secrets.SSH_KEY }}
+          command_timeout: 120m
+          script: |
+            cd /root/maps
+            git pull
+            GIT_COMMIT=$(git rev-parse --short HEAD)
+            docker build -t jamrow/maps:${GIT_COMMIT} -t jamrow/maps:latest ./maps
+            docker push jamrow/maps:${GIT_COMMIT}
+            docker push jamrow/maps:latest
+            IMAGE_TAG=${GIT_COMMIT} docker stack deploy -c docker-compose.yml maps_stack

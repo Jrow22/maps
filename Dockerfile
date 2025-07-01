@@ -4,4 +4,4 @@ FROM pramsey/pg_tileserv:latest
 # Expose the port pg_tileserv uses
 EXPOSE 7800
 
-#new text
+#nadded

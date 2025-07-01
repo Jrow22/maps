@@ -4,9 +4,11 @@ services:
     image: jamrow/maps:latest
     restart: always
     env_file:
-      - /root/.env
+      - ./.env
     networks:
       - frontend
+    ports:
+      - "7800:7800"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.maps-http.rule=Host(`maps.api.shmaxes.com`)"

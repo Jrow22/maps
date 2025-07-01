@@ -13,7 +13,7 @@ services:
       - "traefik.http.routers.maps-http.entrypoints=web"
       - "traefik.http.services.maps-http.loadbalancer.server.port=7800"
     deploy:
-      replicas: 0
+      replicas: 1
       restart_policy:
         condition: on-failure
   traefik:

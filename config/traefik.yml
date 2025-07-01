@@ -12,6 +12,7 @@ entryPoints:
   websecure:
     address: :443
 providers:
-  swarm:
+  docker:
     endpoint: "unix:///var/run/docker.sock"
     exposedByDefault: false
+    network: frontend

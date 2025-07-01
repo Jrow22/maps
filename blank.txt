@@ -1,0 +1,13 @@
+
+  traefik:
+    image: traefik:v3.4
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config/traefik.yml:/etc/traefik/traefik.yml:ro
+    restart: unless-stopped
+    networks:
+      - frontend

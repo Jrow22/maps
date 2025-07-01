@@ -4,7 +4,7 @@ services:
     image: jamrow/maps:latest
     restart: always
     env_file:
-      - /root/.env
+      - ./.env
     networks:
       - frontend
     labels:
@@ -12,7 +12,7 @@ services:
       - "traefik.http.routers.maps-http.rule=Host(`maps.api.shmaxes.com`)"
       - "traefik.http.routers.maps-http.entrypoints=web"
     deploy:
-      replicas: 1
+      replicas: 0
       restart_policy:
         condition: none
 

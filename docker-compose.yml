@@ -7,13 +7,12 @@ services:
       - /root/.env
     networks:
       - frontend
-      - backend
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.maps-http.rule=Host(`maps.api.shmaxes.com`)"
       - "traefik.http.routers.maps-http.entrypoints=web"
     deploy:
-      replicas: 0
+      replicas: 1
       restart_policy:
         condition: none
 
@@ -32,6 +31,4 @@ services:
 
 networks:
   frontend:
-    external: true
-  backend:
     external: true

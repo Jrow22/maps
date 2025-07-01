@@ -9,7 +9,7 @@ services:
       - frontend
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.maps-http.rule=Host(`maps.api.shmaxes.com`)"
+      - "traefik.http.routers.maps-http.rule=Host(`maps.api.shmaxes.com`) && PathPrefix(`/`)"
       - "traefik.http.routers.maps-http.entrypoints=web"
       - "traefik.http.services.maps-http.loadbalancer.server.port=7800"
   traefik:

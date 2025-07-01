@@ -4,14 +4,31 @@ services:
     image: jamrow/maps:latest
     restart: always
     env_file:
-      - /root/env.env
-    ports:
-      - "7800:7800"
+      - ./env.env
+    networks:
+      - frontend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.maps-http.rule=Host(`maps.api.shmaxes.com`)"
+      - "traefik.http.routers.maps-http.entrypoints=web"
     deploy:
       replicas: 1
       restart_policy:
         condition: none
 
-secrets:
-  DATABASE_URL:
+  traefik:
+    image: traefik:v3.4
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config/traefik.yml:/etc/traefik/traefik.yml:ro
+    restart: unless-stopped
+    networks:
+      - frontend
+
+networks:
+  frontend:
     external: true

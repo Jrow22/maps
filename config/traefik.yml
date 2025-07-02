@@ -15,15 +15,15 @@ providers:
   swarm:
     endpoint: "unix:///var/run/docker.sock"
     network: frontend
-#certificatesResolvers:
-#  cloudflare:
-#    acme:
-#      email: "james1rowley@icloud.com"
-#      storage: "/var/traefik/certs/cloudflare-acme.json"
-#      caServer: "https://acme-v02.api.letsencrypt.org/directory"
-#      keyType: EC256
-#      dnsChallenge:
-#         provider: cloudflare
-#        resolvers:
-#          - 1.1.1.1:53
-#          - 8.8.8.8:53
+certificatesResolvers:
+  cloudflare:
+    acme:
+      email: "james1rowley@icloud.com"
+      storage: "/var/traefik/certs/cloudflare-acme.json"
+      caServer: "https://acme-v02.api.letsencrypt.org/directory"
+      keyType: EC256
+      dnsChallenge:
+        provider: cloudflare
+        resolvers:
+          - 1.1.1.1:53
+          - 8.8.8.8:53

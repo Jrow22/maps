@@ -7,8 +7,6 @@ api:
   dashboard: true
   insecure: false
 entryPoints:
-  web:
-    address: :80
   websecure:
     address: :443
 certificatesResolvers:
